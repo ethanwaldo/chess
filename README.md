@@ -1,11 +1,12 @@
-# Python Chess Game
+# Python Chess Game with AI
 
-A complete, fully-functional chess game with a graphical user interface (GUI) built using Python and the Pygame library. This project features a robust engine that enforces all standard and advanced chess rules, making it AI-ready.
+A complete, fully-functional chess game with a graphical user interface (GUI) built using Python and the Pygame library. This project features a robust engine that enforces all standard and advanced chess rules and includes an AI opponent powered by OpenAI's GPT models.
 
 
 
 ## Features
 * **Complete Chess Logic:** A fully implemented chess engine that handles all aspects of gameplay.
+* **AI Opponent:** Play against an AI powered by a large language model (LLM) from OpenAI.
 * **Standard and Special Moves:** Includes all standard piece movements as well as the three special moves:
     * Castling (Kingside and Queenside)
     * En Passant
@@ -16,7 +17,7 @@ A complete, fully-functional chess game with a graphical user interface (GUI) bu
     * Draw by Threefold Repetition
     * Draw by the 50-Move Rule
     * Draw by Insufficient Material
-* **Interactive GUI:** A clean graphical interface for two-player gameplay, featuring:
+* **Interactive GUI:** A clean graphical interface for gameplay, featuring:
     * Move highlighting for selected pieces.
     * A display for captured pieces, player timers, and game status.
     * Buttons for New Game, Undo, Resign, and Offer Draw.
@@ -30,6 +31,7 @@ The project is organized with a clean separation of concerns:
 * `gui.py`: Manages all Pygame rendering, user input, and visual elements.
 * `engine.py`: The core game engine. It handles all game state, rules, and move logic.
 * `pieces.py`: Defines the movement patterns for each individual chess piece.
+* `ai.py`: Contains the logic for the AI player and communication with the OpenAI API.
 * `config.py`: A central file for all constants, such as colors, window size, and UI layout.
 * `requirements.txt`: Lists the necessary Python packages for the project.
 
@@ -43,7 +45,14 @@ The project is organized with a clean separation of concerns:
     cd your-repo-name
     ```
 
-2.  **Create and activate a virtual environment**
+2.  **Set up your API Key**
+    * Create a new file in the root directory of the project named `.env`.
+    * Add your OpenAI API key to this file. **This file should never be shared or uploaded to GitHub.**
+        ```
+        OPENAI_API_KEY="your_secret_api_key_goes_here"
+        ```
+
+3.  **Create and activate a virtual environment**
     ```bash
     # Create the environment
     python3 -m venv venv
@@ -55,12 +64,12 @@ The project is organized with a clean separation of concerns:
     .\venv\Scripts\Activate.ps1
     ```
 
-3.  **Install dependencies**
+4.  **Install dependencies**
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Run the game**
+5.  **Run the game**
     ```bash
     python main.py
     ```
